@@ -1,6 +1,16 @@
 import { Form as FormikForm, ErrorMessage as FormikErrorMessage } from 'formik';
 import styled from 'styled-components';
 
+export const Container = styled.div`
+  max-width: 500px;
+  margin: 15px auto;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  box-shadow: 0 15px 30px 1px grey;
+  text-align: center;
+`;
+
 export const Form = styled(FormikForm)`
   padding: 8px;
   border: 1px solid #2a2a2a;

@@ -1,20 +1,33 @@
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import css from './Navigation.module.css';
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import { Box, Button } from '@mui/material';
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <nav>
-      <NavLink className={css.link} to="/">
-        Home
+    <Box component="nav">
+      <NavLink to="/">
+        <Button>
+          <HomeRoundedIcon
+            fontSize="medium"
+            sx={{
+              color: 'white',
+              '&:hover': {
+                color: 'black',
+              },
+            }}
+          />
+        </Button>
       </NavLink>
       {isLoggedIn && (
-        <NavLink className={css.link} to="/contacts">
-          Contacts
+        <NavLink to="/contacts">
+          <Button sx={{ color: 'white', '&:hover': { color: 'black' } }}>
+            Contacts
+          </Button>
         </NavLink>
       )}
-    </nav>
+    </Box>
   );
 };

@@ -1,13 +1,15 @@
-import { AppBar } from 'components/AppBar/AppBar';
+import { AplicationBar } from 'components/AppBar/AppBar';
 // import { Container } from './Layout.styled';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
+import { GlobalStyle } from 'components/GlobalStyle';
 
 export const Layout = () => {
   return (
     <div>
-      <AppBar />
+      <AplicationBar />
+      <GlobalStyle />
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>

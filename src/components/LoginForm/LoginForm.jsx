@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operation';
-import css from './LoginForm.module.css';
-
+import { TextField, Button, Grid, Box } from '@mui/material';
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
@@ -18,16 +17,65 @@ export const LoginForm = () => {
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-      <label className={css.label}>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label className={css.label}>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <Box
+      component="form"
+      onSubmit={handleSubmit}
+      autoComplete="off"
+      sx={{
+        margin: '20px auto',
+        width: 500,
+        justifyContent: 'center',
+        padding: '10',
+      }}
+    >
+      <Grid container spacing={2} justifyContent="center">
+        <Grid item xs={12}>
+          <TextField
+            label="Email"
+            variant="outlined"
+            fullWidth
+            required
+            name="email"
+            type="email"
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            label="Password"
+            variant="outlined"
+            fullWidth
+            required
+            name="password"
+            type="password"
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Button
+            type="submit"
+            variant="contained"
+            fullWidth
+            sx={{
+              backgroundColor: '#38d2d2',
+              '&:hover': {
+                backgroundColor: 'rgb(41, 132, 132)',
+              },
+            }}
+          >
+            Register
+          </Button>
+        </Grid>
+      </Grid>
+    </Box>
+
+    //   <label className={css.label}>
+    //     Email
+    //     <input type="email" name="email" />
+    //   </label>
+    //   <label className={css.label}>
+    //     Password
+    //     <input type="password" name="password" />
+    //   </label>
+    //   <button type="submit">Log In</button>
+    // </form>
   );
 };

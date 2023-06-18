@@ -1,6 +1,8 @@
+import React from 'react';
+import { TextField, Button, Grid, Box } from '@mui/material';
+
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operation';
-import css from './RegisterForm.module.css';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -19,20 +21,63 @@ export const RegisterForm = () => {
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-      <label className={css.label}>
-        Username
-        <input type="text" name="name" />
-      </label>
-      <label className={css.label}>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label className={css.label}>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Register</button>
-    </form>
+    <Box
+      component="form"
+      onSubmit={handleSubmit}
+      autoComplete="off"
+      sx={{
+        margin: '20px auto',
+        width: 500,
+        justifyContent: 'center',
+        padding: '10',
+      }}
+    >
+      <Grid container spacing={2} justifyContent="center">
+        <Grid item xs={12}>
+          <TextField
+            label="Username"
+            variant="outlined"
+            fullWidth
+            required
+            name="name"
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            label="Email"
+            variant="outlined"
+            fullWidth
+            required
+            name="email"
+            type="email"
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            label="Password"
+            variant="outlined"
+            fullWidth
+            required
+            name="password"
+            type="password"
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Button
+            type="submit"
+            variant="contained"
+            fullWidth
+            sx={{
+              backgroundColor: '#38d2d2',
+              '&:hover': {
+                backgroundColor: 'rgb(41, 132, 132)',
+              },
+            }}
+          >
+            Register
+          </Button>
+        </Grid>
+      </Grid>
+    </Box>
   );
 };

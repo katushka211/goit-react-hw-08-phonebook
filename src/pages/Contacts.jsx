@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { selectLoading } from 'redux/selectors';
 import { fetchContacts } from 'redux/contacts/operations';
+import { Container } from 'components/ContactForm/ContactForm.styled';
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -15,14 +16,16 @@ const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-      <div>{isLoading && 'Request in progress...'}</div>
-      <ContactList />
-    </div>
+    <Container>
+      <div>
+        <h1>Phonebook</h1>
+        <ContactForm />
+        <h2>Contacts</h2>
+        <Filter />
+        <div>{isLoading && 'Request in progress...'}</div>
+        <ContactList />
+      </div>
+    </Container>
   );
 };
 
