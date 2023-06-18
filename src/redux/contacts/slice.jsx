@@ -52,16 +52,5 @@ export const contactSlice = createSlice({
       .addCase(addContact.fulfilled, handleAddContactSuccess)
       .addCase(deleteContact.fulfilled, handleDeleteContactSuccess);
   },
-  // extraReducers: {
-  //   [fetchContacts.pending]: handlePending,
-  //   [addContact.pending]: handlePending,
-  //   [deleteContact.pending]: handlePending,
-  //   [fetchContacts.rejected]: handleRejected,
-  //   [addContact.rejected]: handleRejected,
-  //   [deleteContact.rejected]: handleRejected,
-  //   [fetchContacts.fulfilled]: handleFetchContactsSuccess,
-  //   [addContact.fulfilled]: handleAddContactSuccess,
-  //   [deleteContact.fulfilled]: handleDeleteContactSuccess,
-  // },
 });
 export const contactsReducer = contactSlice.reducer;
