@@ -25,7 +25,7 @@ export const ContactList = () => {
         <Loader />
       ) : (
         <ul>
-          {visibleContacts.map(item => (
+          {visibleContacts?.map(item => (
             <li key={item.id}>
               <Contact item={item} />
             </li>
