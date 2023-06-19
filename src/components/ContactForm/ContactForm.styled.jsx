@@ -20,13 +20,13 @@ export const Form = styled(FormikForm)`
   margin-bottom: 10px;
 `;
 
-export const ErrorInfo = styled.div`
+export const ErrorInfo = styled.span`
   font-size: 14px;
   color: #38d2d2;
 `;
 
 export const ButtonForm = styled.button`
-  width: 380px;
+  width: 200px;
   margin: 0 auto;
   color: #fff;
   padding: 15px 25px;

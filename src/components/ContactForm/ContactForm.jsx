@@ -30,16 +30,21 @@ export const ContactForm = () => {
   const contacts = useSelector(selectContact);
 
   const handleSubmit = (values, actions) => {
+    if (contacts.find(contact => contact.name === values.name)) {
+      alert(`${values.name} is already in contacts`);
+      return;
+    }
     const contact = {
       name: values.name,
       number: values.number,
       id: nanoid(),
     };
+    console.log(contact);
 
-    if (contacts.find(({ name }) => name === contact.name)) {
-      alert(`${contact.name} is already in contacts`);
-      return;
-    }
+    // if (contacts.find(({ name }) => name === contact.name)) {
+    //   alert(`${contact.name} is already in contacts`);
+    //   return;
+    // }
 
     dispatch(addContact(contact));
     actions.resetForm();
