@@ -9,7 +9,7 @@ const Home = () => {
       style={{
         height: 'calc(100vh - 64px)',
         backgroundImage:
-          'linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)) , url(https://source.unsplash.com/random?phone)',
+          'linear-gradient(to right, rgba(29, 29, 36, 0.4), rgba(29, 29, 36, 0.4)) , url(https://source.unsplash.com/random?phone)',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -25,9 +25,10 @@ const Home = () => {
       <NavLink to="/login">
         <Button
           sx={{
+            fontWeight: '600',
             color: '#38d2d2',
             backgroundColor: 'transparent',
-            border: '1px solid #38d2d2',
+            border: '2px solid #38d2d2',
             mt: 8,
             '&:hover': { backgroundColor: '#38d2d2', color: 'black' },
           }}
