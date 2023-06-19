@@ -1,11 +1,12 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import 'yup-phone';
-import { ButtonForm } from './ContactForm.styled';
+import { ButtonForm, ErrorInfo } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/operations';
 import { nanoid } from '@reduxjs/toolkit';
 import { selectContact } from 'redux/selectors';
+import { TextField } from '@mui/material';
 
 const contactFormSchema = yup.object().shape({
   name: yup
@@ -51,23 +52,31 @@ export const ContactForm = () => {
       onSubmit={handleSubmit}
     >
       <Form>
-        <label>
-          Name
-          <Field name="name" placeholder="Annie Copeland" />
-          <ErrorMessage name="name" component="div" />
-        </label>
-        <label>
-          Number
-          <Field
-            placeholder="227-91-26"
-            type="tel"
-            name="number"
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
-          />
-          <ErrorMessage name="number" component="div" />
-        </label>
+        <Field
+          as={TextField}
+          name="name"
+          label="Name"
+          placeholder="Annie Copeland"
+          required
+          fullWidth
+          size="small"
+          margin="normal"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          helperText={<ErrorMessage name="name" component={ErrorInfo} />}
+        />
+        <Field
+          as={TextField}
+          type="tel"
+          name="number"
+          label="Number"
+          placeholder="227-91-26"
+          required
+          fullWidth
+          size="small"
+          margin="normal"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          helperText={<ErrorMessage name="number" component={ErrorInfo} />}
+        />
         <ButtonForm type="submit">Add contact</ButtonForm>
       </Form>
     </Formik>

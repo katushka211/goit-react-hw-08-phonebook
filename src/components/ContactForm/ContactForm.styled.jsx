@@ -1,4 +1,4 @@
-import { Form as FormikForm, ErrorMessage as FormikErrorMessage } from 'formik';
+import { Form as FormikForm } from 'formik';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -20,9 +20,9 @@ export const Form = styled(FormikForm)`
   margin-bottom: 10px;
 `;
 
-export const ErrorMessage = styled(FormikErrorMessage)`
+export const ErrorInfo = styled.div`
   font-size: 14px;
-  color: ${props => props.theme.colors.accent};
+  color: #38d2d2;
 `;
 
 export const ButtonForm = styled.button`
