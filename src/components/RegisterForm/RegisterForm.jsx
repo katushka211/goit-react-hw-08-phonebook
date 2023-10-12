@@ -57,7 +57,12 @@ export const RegisterForm = () => {
                 required
                 name="name"
               />
-              <ErrorMessage name="name" component="div" className="error" />
+              <ErrorMessage
+                name="name"
+                component="div"
+                className="error"
+                style={{ color: 'red', fontSize: '14px' }}
+              />
             </Grid>
             <Grid item xs={12}>
               <Field
@@ -69,7 +74,12 @@ export const RegisterForm = () => {
                 name="email"
                 type="email"
               />
-              <ErrorMessage name="email" component="div" className="error" />
+              <ErrorMessage
+                name="email"
+                component="div"
+                className="error"
+                style={{ color: 'red', fontSize: '14px' }}
+              />
             </Grid>
             <Grid item xs={12}>
               <Field
@@ -81,7 +91,12 @@ export const RegisterForm = () => {
                 name="password"
                 type="password"
               />
-              <ErrorMessage name="password" component="div" className="error" />
+              <ErrorMessage
+                name="password"
+                component="div"
+                className="error"
+                style={{ color: 'red', fontSize: '14px' }}
+              />
             </Grid>
             <Grid item xs={12}>
               <Button
