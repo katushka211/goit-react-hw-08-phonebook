@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField, Button, Grid, Box } from '@mui/material';
+import { TextField, Button, Grid, Box, Typography } from '@mui/material';
 import { Formik, Form, ErrorMessage, Field } from 'formik';
 
 import { useDispatch } from 'react-redux';
@@ -33,89 +33,108 @@ export const RegisterForm = () => {
   };
 
   return (
-    <Formik
-      initialValues={{ name: '', email: '', password: '' }}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}
+    <Box
+      sx={{
+        backgroundColor: 'rgba(248, 248, 248, 0.188)',
+        height: '100vh',
+      }}
     >
-      <Box
-        sx={{
-          margin: '20px auto',
-          width: 500,
-          justifyContent: 'center',
-          padding: '10',
-        }}
+      <Formik
+        initialValues={{ name: '', email: '', password: '' }}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
       >
-        <Form>
-          <Grid container spacing={2} justifyContent="center">
-            <Grid item xs={12}>
-              <Field
-                as={TextField}
-                label="Username"
-                variant="outlined"
-                fullWidth
-                required
-                name="name"
-              />
-              <ErrorMessage
-                name="name"
-                component="div"
-                className="error"
-                style={{ color: 'red', fontSize: '14px' }}
-              />
+        <Box
+          sx={{
+            margin: '0 auto',
+            width: 500,
+            height: '70vh',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: '10',
+          }}
+        >
+          <Form>
+            <Typography
+              variant="h5"
+              component="h2"
+              mb={2}
+              sx={{ color: 'dark-gray', textAlign: 'center' }}
+            >
+              Registration
+            </Typography>
+            <Grid container spacing={2} justifyContent="center">
+              <Grid item xs={12}>
+                <Field
+                  as={TextField}
+                  label="Username"
+                  variant="outlined"
+                  fullWidth
+                  required
+                  name="name"
+                />
+                <ErrorMessage
+                  name="name"
+                  component="div"
+                  className="error"
+                  style={{ color: 'red', fontSize: '14px' }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Field
+                  as={TextField}
+                  label="Email"
+                  variant="outlined"
+                  fullWidth
+                  required
+                  name="email"
+                  type="email"
+                />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="error"
+                  style={{ color: 'red', fontSize: '14px' }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Field
+                  as={TextField}
+                  label="Password"
+                  variant="outlined"
+                  fullWidth
+                  required
+                  name="password"
+                  type="password"
+                />
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className="error"
+                  style={{ color: 'red', fontSize: '14px' }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  fullWidth
+                  sx={{
+                    backgroundColor: '#38d2d2',
+                    '&:hover': {
+                      backgroundColor: 'rgb(41, 132, 132)',
+                    },
+                  }}
+                >
+                  Register
+                </Button>
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <Field
-                as={TextField}
-                label="Email"
-                variant="outlined"
-                fullWidth
-                required
-                name="email"
-                type="email"
-              />
-              <ErrorMessage
-                name="email"
-                component="div"
-                className="error"
-                style={{ color: 'red', fontSize: '14px' }}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Field
-                as={TextField}
-                label="Password"
-                variant="outlined"
-                fullWidth
-                required
-                name="password"
-                type="password"
-              />
-              <ErrorMessage
-                name="password"
-                component="div"
-                className="error"
-                style={{ color: 'red', fontSize: '14px' }}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Button
-                type="submit"
-                variant="contained"
-                fullWidth
-                sx={{
-                  backgroundColor: '#38d2d2',
-                  '&:hover': {
-                    backgroundColor: 'rgb(41, 132, 132)',
-                  },
-                }}
-              >
-                Register
-              </Button>
-            </Grid>
-          </Grid>
-        </Form>
-      </Box>
-    </Formik>
+          </Form>
+        </Box>
+      </Formik>
+    </Box>
   );
 };
