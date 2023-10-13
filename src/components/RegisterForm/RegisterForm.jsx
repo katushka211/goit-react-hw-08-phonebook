@@ -1,6 +1,15 @@
 import React from 'react';
-import { TextField, Button, Grid, Box, Typography } from '@mui/material';
+import {
+  TextField,
+  Button,
+  Grid,
+  Box,
+  Typography,
+  Avatar,
+  Link,
+} from '@mui/material';
 import { Formik, Form, ErrorMessage, Field } from 'formik';
+import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operation';
@@ -35,8 +44,8 @@ export const RegisterForm = () => {
   return (
     <Box
       sx={{
-        backgroundColor: 'rgba(248, 248, 248, 0.188)',
-        height: '100vh',
+        minHeight: '100%',
+        component: 'main',
       }}
     >
       <Formik
@@ -48,7 +57,6 @@ export const RegisterForm = () => {
           sx={{
             margin: '0 auto',
             width: 500,
-            height: '70vh',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
@@ -57,14 +65,22 @@ export const RegisterForm = () => {
           }}
         >
           <Form>
-            <Typography
-              variant="h5"
-              component="h2"
-              mb={2}
-              sx={{ color: 'dark-gray', textAlign: 'center' }}
+            <Box
+              sx={{
+                marginTop: 8,
+                marginBottom: 3,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
             >
-              Registration
-            </Typography>
+              <Avatar sx={{ m: 1, bgcolor: 'rgb(41, 132, 132)' }}>
+                <LockOpenOutlinedIcon />
+              </Avatar>
+              <Typography component="h2" variant="h5">
+                Sign up
+              </Typography>
+            </Box>
             <Grid container spacing={2} justifyContent="center">
               <Grid item xs={12}>
                 <Field
@@ -123,6 +139,7 @@ export const RegisterForm = () => {
                   fullWidth
                   sx={{
                     backgroundColor: '#38d2d2',
+                    marginBottom: '20px',
                     '&:hover': {
                       backgroundColor: 'rgb(41, 132, 132)',
                     },
@@ -130,6 +147,24 @@ export const RegisterForm = () => {
                 >
                   Register
                 </Button>
+                <Box
+                  display={'flex'}
+                  justifyContent={'center'}
+                  gap={'5px'}
+                  alignItems={'center'}
+                >
+                  <Typography component={'span'}>
+                    Already have an account?
+                  </Typography>
+                  <Link
+                    href="/goit-react-hw-08-phonebook/login"
+                    variant="body2"
+                    color={'rgb(41, 132, 132)'}
+                    fontSize={'16px'}
+                  >
+                    Log In
+                  </Link>
+                </Box>
               </Grid>
             </Grid>
           </Form>

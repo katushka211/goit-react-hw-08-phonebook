@@ -6,7 +6,7 @@ export const AuthNav = () => {
     <div>
       <NavLink to="/register">
         <Button sx={{ color: 'white', '&:hover': { color: 'black' } }}>
-          Register
+          Sign Up
         </Button>
       </NavLink>
       <NavLink to="/login">
