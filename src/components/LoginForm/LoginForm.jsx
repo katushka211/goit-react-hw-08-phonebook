@@ -37,120 +37,118 @@ export const LoginForm = () => {
   };
 
   return (
-    <Formik
-      initialValues={{ email: '', password: '' }}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}
+    <Box
+      sx={{
+        minHeight: '100%',
+        component: 'main',
+      }}
     >
-      <Form>
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
         <Box
           sx={{
-            backgroundColor: 'rgba(248, 248, 248, 0.188)',
-            minHeight: '100%',
+            margin: '0 auto',
+            width: 500,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: '10',
           }}
         >
-          <Box
-            sx={{
-              margin: '0 auto',
-              width: 500,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              padding: '10',
-            }}
-          >
-            <Form>
-              <Box
-                sx={{
-                  marginTop: 8,
-                  marginBottom: 3,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                }}
-              >
-                <Avatar sx={{ m: 1, bgcolor: 'rgb(41, 132, 132)' }}>
-                  <LockOutlinedIcon />
-                </Avatar>
-                <Typography component="h2" variant="h5">
-                  Log In
-                </Typography>
-              </Box>
-              <Grid container spacing={2} justifyContent="center">
-                <Grid item xs={12}>
-                  <Field
-                    as={TextField}
-                    label="Email"
-                    variant="outlined"
-                    fullWidth
-                    required
-                    name="email"
-                    type="email"
-                  />
-                  <ErrorMessage
-                    name="email"
-                    component="div"
-                    className="error"
-                    style={{ color: 'red', fontSize: '14px' }}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <Field
-                    as={TextField}
-                    label="Password"
-                    variant="outlined"
-                    fullWidth
-                    required
-                    name="password"
-                    type="password"
-                  />
-                  <ErrorMessage
-                    name="password"
-                    component="div"
-                    className="error"
-                    style={{ color: 'red', fontSize: '14px' }}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    fullWidth
-                    sx={{
-                      backgroundColor: '#38d2d2',
-                      marginBottom: '20px',
-                      '&:hover': {
-                        backgroundColor: 'rgb(41, 132, 132)',
-                      },
-                    }}
-                  >
-                    Log In
-                  </Button>
-                  <Box
-                    display={'flex'}
-                    justifyContent={'center'}
-                    gap={'5px'}
-                    alignItems={'center'}
-                  >
-                    <Typography component={'span'}>
-                      Don't have an account?
-                    </Typography>
-                    <Link
-                      href="/goit-react-hw-08-phonebook/register"
-                      variant="body2"
-                      color={'rgb(41, 132, 132)'}
-                      fontSize={'16px'}
-                    >
-                      Sign Up
-                    </Link>
-                  </Box>
-                </Grid>
+          <Form>
+            <Box
+              sx={{
+                marginTop: 8,
+                marginBottom: 3,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              <Avatar sx={{ m: 1, bgcolor: 'rgb(41, 132, 132)' }}>
+                <LockOutlinedIcon />
+              </Avatar>
+              <Typography component="h2" variant="h5">
+                Log In
+              </Typography>
+            </Box>
+            <Grid container spacing={2} justifyContent="center">
+              <Grid item xs={12}>
+                <Field
+                  as={TextField}
+                  label="Email"
+                  variant="outlined"
+                  fullWidth
+                  required
+                  name="email"
+                  type="email"
+                />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="error"
+                  style={{ color: 'red', fontSize: '14px' }}
+                />
               </Grid>
-            </Form>
-          </Box>
+              <Grid item xs={12}>
+                <Field
+                  as={TextField}
+                  label="Password"
+                  variant="outlined"
+                  fullWidth
+                  required
+                  name="password"
+                  type="password"
+                />
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className="error"
+                  style={{ color: 'red', fontSize: '14px' }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  fullWidth
+                  sx={{
+                    backgroundColor: '#38d2d2',
+                    marginBottom: '20px',
+                    '&:hover': {
+                      backgroundColor: 'rgb(41, 132, 132)',
+                    },
+                  }}
+                >
+                  Log In
+                </Button>
+                <Box
+                  display={'flex'}
+                  justifyContent={'center'}
+                  gap={'5px'}
+                  alignItems={'center'}
+                >
+                  <Typography component={'span'}>
+                    Don't have an account?
+                  </Typography>
+                  <Link
+                    href="/goit-react-hw-08-phonebook/register"
+                    variant="body2"
+                    color={'rgb(41, 132, 132)'}
+                    fontSize={'16px'}
+                  >
+                    Sign Up
+                  </Link>
+                </Box>
+              </Grid>
+            </Grid>
+          </Form>
         </Box>
-      </Form>
-    </Formik>
+      </Formik>
+    </Box>
   );
 };
